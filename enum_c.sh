@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function check(){ # $1 is domain $2 is username $3 is hash
-    smbclient --pw-nt-hash -U "$1/$2%$3" "\\\\$4\\C\$" 1>/dev/null 2>&1 && echo "[+] Found : $1:$2";
+    smbclient --pw-nt-hash -U "$1/$2%$3" "\\\\$4\\C\$" 1>/dev/null 2>&1 && echo "[+] Found : $1/$2:$3";
 }
 
 if [[ -z "$1" || -z "$2" || -z "$3" || ! -f "$3"  ]];then
